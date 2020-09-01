@@ -27,7 +27,7 @@ def boundary_points(points, width_percent=0.1, height_percent=0.1):
   return [[x+spacerw, y+spacerh],
           [x+w-spacerw, y+spacerh]]
 
-def face_points(img, background, add_boundary_points=True):
+def face_points(img, background='average', add_boundary_points=True):
   return face_points_dlib(img, background, add_boundary_points)
 
 def face_points_dlib(img, background, add_boundary_points=True):
