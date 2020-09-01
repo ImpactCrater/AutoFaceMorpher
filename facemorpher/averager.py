@@ -4,7 +4,7 @@
   Face averager
 
   Usage:
-    averager.py --images=<images_folder> [--blur] [--plot]
+    averager.py --images=<images_folder> [--blur]
               [--background=(black|transparent|average)]
               [--width=<width>] [--height=<height>]
               [--out=<filename>] [--destimg=<filename>]
@@ -17,7 +17,6 @@
     --height=<height>      Custom height of the images/video [default: 600]
     --out=<filename>       Filename to save the average face [default: result.png]
     --destimg=<filename>   Destination face image to overlay average face
-    --plot                 Flag to display the average face [default: False]
     --background=<bg>      Background of image to be one of (black|transparent|average) [default: average]
     --version              Show version.
 """
@@ -31,7 +30,6 @@ import locator
 import aligner
 import warper
 import blender
-import plotter
 
 def ListImagePaths(imageFolder):
   for fname in os.listdir(imageFolder):
@@ -73,7 +71,7 @@ def loadImagePoints(path, desiredSize, background):
     return aligner.ResizeAlign(sourceImage, points, desiredSize)
 
 def averager(imagePaths, destinationFilename = None, width = 500, height = 600, background = 'average',
-             blurEdges = False, outputFilename = 'result.png', plot = False):
+             blurEdges = False, outputFilename = 'result.png'):
 
   size = (height, width)
   images = []
@@ -148,7 +146,7 @@ def main():
   try:
     averager(ListImagePaths(args['--images']), args['--destimg'],
              int(args['--width']), int(args['--height']),
-             args['--background'], args['--blur'], args['--out'], args['--plot'])
+             args['--background'], args['--blur'], args['--out'])
   except Exception as e:
     print(e)
 
