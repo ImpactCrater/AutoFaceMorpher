@@ -18,11 +18,8 @@ Built with Python, [dlib][], Numpy, Scipy, dlib, OpenCV.
 
 Either:
 
--  `Use as local command-line utility`_
--  `Use as pip library`_
--  `Try out in a docker container`_
-
-.. _`Use as local command-line utility`:
+- [Use as local command-line utility](#Use as local command-line utility)
+- [Use as pip library](#Use as pip library)
 
 ### Use as local command-line utility
 ```bash
