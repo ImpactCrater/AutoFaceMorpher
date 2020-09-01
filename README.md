@@ -5,7 +5,7 @@ https://github.com/alyssaq/face_morpher
 - **Warp, average and morph human faces.**
 - **Scripts will automatically detect frontal faces and skip images if none is detected.**
 
-Built with Python, [dlib][], Numpy, Scipy, dlib, OpenCV.
+Built with Python, [dlib][], Numpy, Scipy, [OpenCV][].
 
 - Supported on Python 3.6+
 - Tested on 64bit Linux (Ubuntu 18.04 LTS).
@@ -160,8 +160,8 @@ python3 facemorpher/averager.py --images=images --blur --background=average --wi
 ![averaged female face](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/result-adjusted.png)
 
 This is a result image with unsharp mask filtering applied and cropped.
-
-
+</br>
+</br>
 - 85 images used
 ```bash
 python3 facemorpher/averager.py --images=images --blur --background=transparent --width=220 --height=250
@@ -201,7 +201,7 @@ License
 -------
 [MIT][]
 
-[MIT]:http://alyssaq.github.io/mit-license
+[MIT]:https://github.com/ImpactCrater/AutoFaceMorpher/blob/dlib/LICENSE
 [OpenCV]:http://opencv.org
 [Homebrew]:https://brew.sh
 [source]:https://github.com/opencv/opencv
