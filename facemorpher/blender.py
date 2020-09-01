@@ -9,7 +9,7 @@ def mask_from_points(size, points):
   :returns: mask of values 0 and 255 where
             255 indicates the convex hull containing the points
   """
-  radius = 10  # kernel size
+  radius = 27  # Erosion kernel size. This must be larger than the blur_kernel_size
   kernel = np.ones((radius, radius), np.uint8)
 
   mask = np.zeros(size, np.uint8)
@@ -25,8 +25,9 @@ def overlay_image(foreground_image, mask, background_image):
   :param background_image: background image points
   :returns: image with foreground where mask > 0 overlaid on background image
   """
-  foreground_pixels = mask > 0
-  background_image[..., :3][foreground_pixels] = foreground_image[..., :3][foreground_pixels]
+  blend_ratio = mask / 255
+  blend_ratio = blend_ratio.reshape(background_image.shape[0], background_image.shape[1], 1)
+  background_image[..., :3] = background_image[..., :3] * (1 - blend_ratio) + foreground_image[..., :3] * blend_ratio
   return background_image
 
 def apply_mask(img, mask):
