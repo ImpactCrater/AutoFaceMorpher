@@ -185,8 +185,7 @@ Average all face images in a folder:
 
 | ``> python3 facemorpher/averager.py --images=images --blur --background=average --width=1200 --height=1200``
 
-.. figure:: https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/result-adjusted.png
-   :alt: average\_faces
+![averaged female faces](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/result-adjusted.png
    This is a result image with unsharp mask filtering applied and cropped.
    
 85 images used
