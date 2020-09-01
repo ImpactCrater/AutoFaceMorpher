@@ -1,13 +1,11 @@
 """
 Locate face points
 """
-
 import cv2
 import numpy as np
 import os.path as path
 import dlib
 import os
-
 
 DATA_DIR = os.environ.get(
   'DLIB_DATA_DIR',
@@ -29,11 +27,10 @@ def boundary_points(points, width_percent=0.1, height_percent=0.1):
   return [[x+spacerw, y+spacerh],
           [x+w-spacerw, y+spacerh]]
 
+def face_points(img, background, add_boundary_points=True):
+  return face_points_dlib(img, background, add_boundary_points)
 
-def face_points(img, add_boundary_points=True):
-  return face_points_dlib(img, add_boundary_points)
-
-def face_points_dlib(img, add_boundary_points=True):
+def face_points_dlib(img, background, add_boundary_points=True):
   """ Locates 68 face points using dlib (http://dlib.net)
     Requires shape_predictor_68_face_landmarks.dat to be in face_morpher/data
     Download at: http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
@@ -55,10 +52,21 @@ def face_points_dlib(img, add_boundary_points=True):
         # Add more points inwards and upwards as dlib only detects up to eyebrows
         points = np.vstack([
           points,
-          boundary_points(points, 0.1, -0.03),
+          boundary_points(points, 0.05, -0.01),
           boundary_points(points, 0.13, -0.05),
           boundary_points(points, 0.15, -0.08),
           boundary_points(points, 0.33, -0.12)])
+
+      if background == 'average':
+        points = np.vstack([
+          points,
+          boundary_points(points, 0.20, -0.80),
+          boundary_points(points, -0.40, -0.80),
+          boundary_points(points, -0.40, 0.20),
+          boundary_points(points, -0.40, 0.50),
+          boundary_points(points, -0.40, 0.70),
+          boundary_points(points, -0.40, 1.40),
+          boundary_points(points, 0.20, 1.40)])
 
     return points
   except Exception as e:
