@@ -142,7 +142,7 @@ python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --out_
 
 (out.avi played and recorded as gif)
 
-[morphing gif](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/being_john_malvokich.gif)
+![morphing gif](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/being_john_malvokich.gif)
 
 #### Save the frames to a folder:
 ```bash
@@ -153,7 +153,7 @@ python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --out_
 ```bash
 python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --num=12 --plot
 ```
-[frames plot](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/plot.png)
+![frames plot](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/plot.png)
 
 #### Average all face images in a folder:
 
@@ -207,8 +207,8 @@ License
 -------
 [MIT][]
 
-[MIT](http://alyssaq.github.io/mit-license)
-[OpenCV](http://opencv.org)
-[Homebrew](https://brew.sh)
-[source](https://github.com/opencv/opencv)
-[dlib](http://dlib.net)
+[MIT]:http://alyssaq.github.io/mit-license
+[OpenCV]:http://opencv.org
+[Homebrew]:https://brew.sh
+[source]:https://github.com/opencv/opencv
+[dlib]:http://dlib.net
