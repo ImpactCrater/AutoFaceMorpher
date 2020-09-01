@@ -155,38 +155,46 @@ Examples - `Being John Malkovich`_
 Create a morphing video between the 2 images:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| ``> python facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg``
+| ``> python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg``
 | ``--out_video=out.avi``
 
 (out.avi played and recorded as gif)
 
-.. figure:: https://raw.github.com/alyssaq/face_morpher/master/examples/being_john_malvokich.gif
+.. figure:: https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/being_john_malvokich.gif
    :alt: gif
 
 Save the frames to a folder:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| ``> python facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg``
+| ``> python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg``
 | ``--out_frames=out_folder --num=30``
 
 Plot the frames:
 ^^^^^^^^^^^^^^^^
 
-| ``> python facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg``
+| ``> python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg``
 | ``--num=12 --plot``
 
-.. figure:: https://raw.github.com/alyssaq/face_morpher/master/examples/plot.png
+.. figure:: https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/plot.png
    :alt: plot
 
 Average all face images in a folder:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+208 images used
+
+| ``> python3 facemorpher/averager.py --images=images --blur --background=average --width=1200 --height=1200``
+
+.. figure:: https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/result-adjusted.png
+   :alt: average\_faces
+   This is a result image with unsharp mask filtering applied and cropped.
+   
 85 images used
 
-| ``> python facemorpher/averager.py --images=images --blur --background=transparent``
+| ``> python3 facemorpher/averager.py --images=images --blur --background=transparent``
 | ``--width=220 --height=250``
 
-.. figure:: https://raw.github.com/alyssaq/face_morpher/master/examples/average_faces.png
+.. figure:: https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/average_faces.png
    :alt: average\_faces
 
 .. _`Use as pip library`:
