@@ -30,12 +30,12 @@ sudo git clone https://github.com/ImpactCrater/AutoFaceMorpher
 
 - Morph from a source to destination image:
 ```bash
-python3 facemorpher/morpher.py --src=<src_imgpath> --dest=<dest_imgpath> --plot
+python3 face_morpher-dlib/facemorpher/morpher.py --src=<src_imgpath> --dest=<dest_imgpath> --plot
 ```
 
 - Morph through a series of images in a folder:
 ```bash
-python3 facemorpher/morpher.py --images=<folder> --out_video=out.avi
+python3 face_morpher-dlib/facemorpher/morpher.py --images=<folder> --out_video=out.avi
 ```
 
 - All options listed in ``morpher.py`` (pasted below):
@@ -70,7 +70,7 @@ python3 facemorpher/morpher.py --images=<folder> --out_video=out.avi
 
 - Average faces from all images in a folder:
 ```bash
-python3 facemorpher/averager.py --images=<images_folder> --out=average.png
+python3 face_morpher-dlib/facemorpher/averager.py --images=<images_folder> --out=average.png
 ```
 
 - All options listed in ``averager.py`` (pasted below):
@@ -132,7 +132,7 @@ Face averager
 
 #### Create a morphing video between the 2 images:
 ```bash
-python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --out_video=out.avi
+python3 face_morpher-dlib/facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --out_video=out.avi
 ```
 
 (out.avi played and recorded as gif)
@@ -141,12 +141,12 @@ python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --out_
 
 #### Save the frames to a folder:
 ```bash
-python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --out_frames=out_folder --num=30
+python3 face_morpher-dlib/facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --out_frames=out_folder --num=30
 ```
 
 #### Plot the frames:
 ```bash
-python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --num=12 --plot
+python3 face_morpher-dlib/facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --num=12 --plot
 ```
 ![frames plot](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/plot.png)
 
@@ -154,7 +154,7 @@ python3 facemorpher/morpher.py --src=alyssa.jpg --dest=john_malkovich.jpg --num=
 
 - 208 images used
 ```bash
-python3 facemorpher/averager.py --images=images --blur --background=average --width=1200 --height=1200
+python3 face_morpher-dlib/facemorpher/averager.py --images=images --blur --background=average --width=1200 --height=1200
 ```
 
 ![averaged female face](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/result-adjusted.png)
@@ -164,33 +164,11 @@ This is a result image with unsharp mask filtering applied and cropped.
 </br>
 - 85 images used
 ```bash
-python3 facemorpher/averager.py --images=images --blur --background=transparent --width=220 --height=250
+python3 face_morpher-dlib/facemorpher/averager.py --images=images --blur --background=transparent --width=220 --height=250
 ```
 
 ![averaged male face](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/average_faces.png)
 
-### Use as pip library
-```bash
-sudo python3 -m install facemorpher
-```
-
-#### Examples
-
-- Additional options are exactly the same as the command line
-```
-    import facemorpher
-
-    # Get a list of image paths in a folder
-    imgpaths = facemorpher.list_imgpaths('imagefolder')
-
-    # To morph, supply an array of face images:
-    facemorpher.morpher(imgpaths, plot=True)
-```
-
-- Once pip installed, 1 binaries are also available as a command line utility:
-```bash
-facemorpher --src=<src_imgpath> --dest=<dest_imgpath> --plot
-```
 
 #### Build & publish Docs
 ```bash
