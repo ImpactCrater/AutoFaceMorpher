@@ -78,7 +78,7 @@ python3 facemorpher/averager.py --images=<images_folder> --out=average.png
 Face averager
 
     Usage:
-        averager.py --images=<images_folder> [--blur] [--plot]
+        averager.py --images=<images_folder> [--blur]
                 [--background=(black|transparent|average)]
                 [--width=<width>] [--height=<height>]
                 [--out=<filename>] [--destimg=<filename>]
@@ -91,7 +91,6 @@ Face averager
         --height=<height>      Custom height of the images/video [default: 600]
         --out=<filename>       Filename to save the average face [default: result.png]
         --destimg=<filename>   Destination face image to overlay average face
-        --plot                 Flag to display the average face [default: False]
         --background=<bg>      Background of image to be one of (black|transparent|average) [default: average]
         --version              Show version.
 ```
@@ -123,12 +122,11 @@ Face averager
 -  Average faces from 2 or more images
 
 5. Blender
+    Optional blending of warped image:
 
-- Optional blending of warped image:
-
-    - Weighted average
-    - Alpha feathering
-    - Poisson blend
+- Weighted average
+- Alpha feathering
+- Poisson blend
 
 ### Examples - `Being John Malkovich`_
 
@@ -160,8 +158,10 @@ python3 facemorpher/averager.py --images=images --blur --background=average --wi
 ```
 
 ![averaged female face](https://raw.githubusercontent.com/ImpactCrater/AutoFaceMorpher/dlib/examples/result-adjusted.png)
-   This is a result image with unsharp mask filtering applied and cropped.
-   
+
+This is a result image with unsharp mask filtering applied and cropped.
+
+
 - 85 images used
 ```bash
 python3 facemorpher/averager.py --images=images --blur --background=transparent --width=220 --height=250
@@ -185,9 +185,6 @@ sudo python3 -m install facemorpher
 
     # To morph, supply an array of face images:
     facemorpher.morpher(imgpaths, plot=True)
-
-    # To average, supply an array of face images:
-    facemorpher.averager(['image1.png', 'image2.png'], plot=True)
 ```
 
 - Once pip installed, 1 binaries are also available as a command line utility:
