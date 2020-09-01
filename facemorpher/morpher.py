@@ -31,12 +31,12 @@ import os
 import numpy as np
 import cv2
 
-from facemorpher import locator
-from facemorpher import aligner
-from facemorpher import warper
-from facemorpher import blender
-from facemorpher import plotter
-from facemorpher import videoer
+import locator
+import aligner
+import warper
+import blender
+import plotter
+import videoer
 
 def verify_args(args):
   if args['--images'] is None:
@@ -51,19 +51,19 @@ def verify_args(args):
       print('--images=%s is not a valid directory' % args['--images'])
       exit(1)
 
-def load_image_points(path, size):
+def load_image_points(path, size, background):
   img = cv2.imread(path)
-  points = locator.face_points(img)
+  points = locator.face_points(img, background)
 
   if len(points) == 0:
     print('No face in %s' % path)
     return None, None
   else:
-    return aligner.resize_align(img, points, size)
+    return aligner.ResizeAlign(img, points, size)
 
-def load_valid_image_points(imgpaths, size):
+def load_valid_image_points(imgpaths, size, background):
   for path in imgpaths:
-    img, points = load_image_points(path, size)
+    img, points = load_image_points(path, size, background)
     if img is not None:
       print(path)
       yield (img, points)
@@ -130,7 +130,7 @@ def morpher(imgpaths, width=500, height=600, num_frames=20, fps=10,
   :param imgpaths: array or generator of image paths
   """
   video = videoer.Video(out_video, fps, width, height)
-  images_points_gen = load_valid_image_points(imgpaths, (height, width))
+  images_points_gen = load_valid_image_points(imgpaths, (height, width), background)
   src_img, src_points = next(images_points_gen)
   for dest_img, dest_points in images_points_gen:
     morph(src_img, src_points, dest_img, dest_points, video,
