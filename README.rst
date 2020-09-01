@@ -1,14 +1,15 @@
-Face Morpher
+AutoFaceMorpher
 ============
 
+Most of this program was cloned from the following repositories;
+`https://github.com/alyssaq/face_morpher`
 | Warp, average and morph human faces!
-| Scripts will automatically detect frontal faces and skip images if
-  none is detected.
+| Scripts will automatically detect frontal faces and skip images if none is detected.
 
-Built with Python, `dlib`_, Numpy, Scipy, dlib.
+Built with Python, `dlib`_, Numpy, Scipy, dlib, OpenCV.
 
-| Supported on Python 2.7, Python 3.6+
-| Tested on macOS Mojave and 64bit Linux (dockerized).
+| Supported on Python 3.6+
+| Tested on 64bit Linux (Ubuntu 18.04 LTS).
 
 Requirements
 --------------
@@ -28,7 +29,7 @@ Use as local command-line utility
 ---------------------------------
 ::
 
-    $ git clone https://github.com/alyssaq/face_morpher
+    $ git clone https://github.com/ImpactCrater/face_morpher
 
 Morphing Faces
 --------------
