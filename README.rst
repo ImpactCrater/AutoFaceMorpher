@@ -29,7 +29,7 @@ Use as local command-line utility
 ---------------------------------
 ::
 
-    $ git clone https://github.com/ImpactCrater/face_morpher
+    $ git clone https://github.com/ImpactCrater/AutoFaceMorpher
 
 Morphing Faces
 --------------
@@ -38,13 +38,13 @@ Morph from a source to destination image:
 
 ::
 
-    python facemorpher/morpher.py --src=<src_imgpath> --dest=<dest_imgpath> --plot
+    python3 facemorpher/morpher.py --src=<src_imgpath> --dest=<dest_imgpath> --plot
 
 Morph through a series of images in a folder:
 
 ::
 
-    python facemorpher/morpher.py --images=<folder> --out_video=out.avi
+    python3 facemorpher/morpher.py --images=<folder> --out_video=out.avi
 
 All options listed in ``morpher.py`` (pasted below):
 
@@ -82,7 +82,7 @@ Average faces from all images in a folder:
 
 ::
 
-    python facemorpher/averager.py --images=<images_folder> --out=average.png
+    python3 facemorpher/averager.py --images=<images_folder> --out=average.png
 
 All options listed in ``averager.py`` (pasted below):
 
@@ -222,25 +222,6 @@ Once pip installed, 2 binaries are also available as a command line utility:
     $ facemorpher --src=<src_imgpath> --dest=<dest_imgpath> --plot
     $ faceaverager --images=<images_folder> --plot
 
-Try out in a docker container
----------------------------------
-Mount local folder to `/images` in docker container, run it and enter a bash session.
---rm removes the container when you close it.
-::
-
-    $ docker run -v  /Users/alyssa/Desktop/images:/images --name py3 --rm -it jjanzic/docker-python3-opencv bash
-
-Once you're in the container, install ``facemorpher`` and try the examples listed above
-::
-
-    root@0dad0912ebbe:/# pip install facemorpher
-    root@0dad0912ebbe:/# facemorpher --src=<img1> --dest=<img2> --plot
-
-Documentation
--------------
-
-http://alyssaq.github.io/face_morpher
-
 Build & publish Docs
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -252,8 +233,6 @@ License
 -------
 `MIT`_
 
-.. _Being John Malkovich: http://www.rottentomatoes.com/m/being_john_malkovich
-.. _Mac installation steps: https://gist.github.com/alyssaq/f60393545173379e0f3f#file-4-opencv3-with-python3-md
 .. _MIT: http://alyssaq.github.io/mit-license
 .. _OpenCV: http://opencv.org
 .. _Homebrew: https://brew.sh
