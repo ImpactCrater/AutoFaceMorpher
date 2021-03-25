@@ -18,8 +18,8 @@
     --images=<folder>       Folderpath to images
     --width=<width>         Custom width of the images/video [default: 500]
     --height=<height>       Custom height of the images/video [default: 600]
-    --num=<num_frames>      Number of morph frames [default: 20]
-    --fps=<fps>             Number frames per second for the video [default: 10]
+    --num=<num_frames>      Number of morph frames [default: 30]
+    --fps=<fps>             Number frames per second for the video [default: 20]
     --out_frames=<folder>   Folder path to save all image frames
     --out_video=<filename>  Filename to save a video
     --plot                  Flag to plot images to result.png [default: False]
@@ -80,7 +80,7 @@ def list_imgpaths(images_folder=None, src_image=None, dest_image=None):
         yield os.path.join(images_folder, fname)
 
 def morph(src_img, src_points, dest_img, dest_points,
-          video, width=500, height=600, num_frames=20, fps=10,
+          video, width=500, height=600, num_frames=30, fps=20,
           out_frames=None, out_video=None, plot=False, background='black'):
   """
   Create a morph sequence from source to destination image
@@ -92,7 +92,7 @@ def morph(src_img, src_points, dest_img, dest_points,
   :param video: facemorpher.videoer.Video object
   """
   size = (height, width)
-  stall_frames = np.clip(int(fps*0.15), 1, fps)  # Show first & last longer
+  stall_frames = np.clip(int(fps*0.05), 1, fps)  # Show first & last longer
   plt = plotter.Plotter(plot, num_images=num_frames, out_folder=out_frames)
   num_frames -= (stall_frames * 2)  # No need to process src and dest image
 
@@ -122,7 +122,7 @@ def morph(src_img, src_points, dest_img, dest_points,
   video.write(dest_img, stall_frames)
   plt.show()
 
-def morpher(imgpaths, width=500, height=600, num_frames=20, fps=10,
+def morpher(imgpaths, width=500, height=600, num_frames=30, fps=20,
             out_frames=None, out_video=None, plot=False, background='black'):
   """
   Create a morph sequence from multiple images in imgpaths
